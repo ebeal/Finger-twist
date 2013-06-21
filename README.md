@@ -1,3 +1,16 @@
+# Leap-Twist
+
+Twister for your fingers - WIP
+
+- To use the app plug the leap motion device in
+- Start the Leap application on your computer
+- Run node server.js in cloned directory and go to the generated localhost
+- Alteratively go to leap-twist.nodejitsu.com
+- Have fun!
+
+--------------------------------------------------------------------------------------
+Below is the Leap Motion JS API readme:
+
 # LeapJS
 
 Welcome to the Leap JavaScript framework. This is intended for use with the Leap (https://www.leapmotion.com/).
