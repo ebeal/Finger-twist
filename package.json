@@ -1,0 +1,30 @@
+{
+  "name": "leapjs",
+  "version": "0.1.2-4",
+  "description": "Leap Motion Client",
+  "main": "lib",
+  "scripts": {
+    "test": "make test-node",
+    "start": "server.js"
+  },
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "ws": "*",
+    "underscore": "*",
+    "browserify": "git://github.com/substack/node-browserify.git",
+    "mocha": "1.7.4",
+    "http-server": "*",
+    "uglify-js": "*",
+    "chai": "*",
+    "mocha-phantomjs": "*",
+    "nodemon": "*",
+    "jsdoc": "git://github.com/jsdoc3/jsdoc.git",
+    "connect": "1.8.5",
+    "express": "2.5.2",
+    "jade": "0.20.0"
+  },
+  "subdomain": "Leap-Twist",
+  "engines": {
+    "node": "0.8.x"
+  }
+}
