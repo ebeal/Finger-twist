@@ -1,5 +1,11 @@
 var levelCount = 0;
 
+//get all circles with current class names
+function getCircles(){
+  var $circles = $('.color-wheel ul li a');
+  return $circles;
+};
+
 //timer logic:
 var clock = document.querySelector(".clock"),
     seconds = 10,
@@ -50,6 +56,8 @@ function countDown(clock, inputSecondsToCount)
 
 //if level ended
 function levelEnd(){
+  getCircles();
+  
   //check if req circles have hover state
     //if true
       //trigger newLevel()
@@ -73,11 +81,15 @@ function newLevel(){
 }
 
 function randomRingSelection(count){
-  //select li list from dom
-  //add to array
-  //shuffle
-  //pop count number of els
-  //add req class
+  getCircles();
+  _.each($circles, function(index, li){
+    $(li).removeClass('.reqFinger');
+  });
+  _.shuffle($circles);
+  $circles = _.first($circles, levelCount);
+  _.each($circles, function(index, li){
+    $(li).addClass('.reqFinger');
+  });
 }
 
 function updateLevel(){
