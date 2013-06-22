@@ -1,7 +1,7 @@
 
 //timer logic:
 var clock = document.querySelector(".clock"),
-    seconds = 10;
+    seconds = 0;
 
 function createTimer(clock, inputSeconds) {
   timer = document.getElementById(clock);
@@ -14,12 +14,11 @@ function createTimer(clock, inputSeconds) {
 function tick() {
   if (totalSeconds <= 0) {
     levelEnd();
+  }else{
+    totalSeconds -= 1;
+    updateTimer();
+    window.setTimeout("tick()", 1000);
   }
-  console.log("before decrement",totalSeconds);
-  totalSeconds -= 1;
-  console.log("after decrement",totalSeconds);
-  updateTimer();
-  window.setTimeout("tick()", 1000);
 }
 
 function updateTimer() {
@@ -33,7 +32,7 @@ var levelCount = 0;
 //add to levelcount and check for levels (win at 11)
 function newLevel(){
   levelCount += 1;
-  //seconds += 5 ;
+  seconds += 5 ;
 
   if(levelCount > 5){
     window.location = '/game-win';

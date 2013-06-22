@@ -78,6 +78,7 @@ p.instructions{
   line-height: 160px;
   text-align: center;
   text-shadow:0 -1px 1px #111;
+  font-family: 'Coming Soon', cursive;
 
   cursor: pointer;
   -webkit-transition: all .5s ease-in-out;
