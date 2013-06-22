@@ -79,8 +79,18 @@ server.get('/game', function(req,res){
   });
 });
 
-server.get('/game-end', function(req,res){
-  res.render('game-end.jade', {
+server.get('/game-win', function(req,res){
+  res.render('game-win.jade', {
+    locals :{
+             title : 'Twist Leap - Game Over',
+             description: 'game over',
+             author: 'Elle Beal'
+            }
+  });
+});
+
+server.get('/game-lose', function(req,res){
+  res.render('game-lose.jade', {
     locals :{
              title : 'Twist Leap - Game Over',
              description: 'game over',

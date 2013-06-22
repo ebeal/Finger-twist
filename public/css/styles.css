@@ -10,6 +10,22 @@ html, body {
   font-family: arial;
 }
 
+/* Text Style */
+h1{
+  margin-top:80px;
+  font-family: 'Kreon', serif;
+  font-size:40pt;
+  color: rgba(171, 115, 235, .6);
+  text-shadow:0 -1px 1px #111;
+}
+
+h2{
+  font-family: 'Coming Soon', cursive;
+  margin-top: 60px;
+  font-size:26pt;
+  color: rgba(100, 100, 100, 1);
+}
+
 #leap-overlay { 
   position: fixed; 
   top: 0; 
@@ -17,11 +33,12 @@ html, body {
   z-index: 1;
 }
 
+/* go button */
 .round-container {
   display: inline-block;
   position: relative;
   margin: 1em 0.5em;
-  top:150px;
+  top:0px;
   width: 200px;
   height: 200px;
 
@@ -41,7 +58,7 @@ html, body {
   height: 160px;
   
   font-size: 60px;
-  color: #990000;
+  color: rgba(115, 137, 235, .6);
   line-height: 160px;
   text-align: center;
   text-shadow:0 -1px 1px #111;
@@ -173,7 +190,6 @@ html, body {
 }
 
 
-
 #debug {
   font-family: monospace;
 }
@@ -225,24 +241,21 @@ html, body {
 
 @-webkit-keyframes throb {
   0% {
-    box-shadow:1px 1px 10px rgba(72, 129, 249, 1), inset -1px -1px 6px rgba(0, 0, 0, 1);
+    box-shadow:1px 1px 10px rgba(0, 0, 0, 1), inset -1px -1px 6px rgba(0, 0, 0, 1);
   }
 
   50% {
-    box-shadow:1px 1px 10px rgba(72, 129, 249, 0.4), inset -1px -1px 6px rgba(0, 0, 0, 1);
+    box-shadow:1px 1px 10px rgba(0, 0, 0, 0.4), inset -1px -1px 6px rgba(0, 0, 0, 1);
   }
 
   100% {
-    box-shadow:1px 1px 10px rgba(72, 129, 249, 1), inset -1px -1px 6px rgba(0, 0, 0, 1);
+    box-shadow:1px 1px 10px rgba(0, 0, 0, 1), inset -1px -1px 6px rgba(0, 0, 0, 1);
   }
 }
 
-.reqFinger {
+.color-wheel li a.reqFinger {
+  border: 2px solid rgba(80,80,80, 1);
   -webkit-animation: throb 1s infinite;
-}
-.color-wheel li a.reqFinger-hover{
-  border:2px solid rgba(182,0,0, 1);
-  box-shadow:inset 1px 1px 10px rgba(0, 0, 0, 1);
 }
 
 /* Timer --------*/

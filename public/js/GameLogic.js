@@ -2,7 +2,7 @@ var levelCount = 0;
 
 //timer logic:
 var clock = document.querySelector(".clock"),
-    seconds = 20,
+    seconds = 0,
     duration = seconds + "s";
 
 window.setTimeout(function(){
@@ -35,52 +35,20 @@ function updateTimer() {
 
 
 
-// function countDown(clock, inputSecondsToCount){
-//   showTime(inputSecondsToCount);
-//   var secondsToCount = inputSecondsToCount + 1;//add 1 seconds since we show 10 till 0 which is in fact 11 seconds 
-//   var endTime = new Date(new Date().getTime() + secondsToCount * 1000);
-
-//   function showDiff() {
-//     secondsToCount = Math.floor((endTime.getTime() - new Date().getTime()) / 1000);
-//     if(secondsToCount >= 0) {
-//       if(secondsToCount <= inputSecondsToCount){
-//         showTime(secondsToCount);
-//       }
-//       window.setTimeout(showDiff ,500);
-//     } else {
-//       //window.setTimeout(levelEnd, (inputSecondsToCount*10));
-//       clock.innerHTML = 0;
-//       //countDown(clock, seconds);
-//       levelEnd();
-//     }
-
-//   }
-//   function showTime(seconds)
-//   {
-//      if(seconds > 60)
-//      {
-//        clock.innerHTML = Math.round(seconds / 60) + ":" + (seconds % 60);
-//      }
-//      else
-//      {
-//        clock.innerHTML = seconds;
-//      }
-//   }
-//   showDiff();
-// }
 
 //add to levelcount and check for levels (win at 11)
 function newLevel(){
   levelCount += 1;
-  if(levelCount > 11){
-    gameEnd("win");
+  seconds += 6;
+  if(levelCount > 5){
+    window.location = '/game-win';
   } else {
     //update printed level count
     updateLevel();
     //select random rings based on level #
     randomRingSelection(levelCount);
-    //reset clock?
-    createTimer(clock, 20);
+    //reset clock
+    createTimer(clock, seconds);
   }
 }
 
@@ -90,7 +58,7 @@ function randomRingSelection(count){
   _.each($circles, function(index, li){
     $(index).removeClass('reqFinger');
   });
-  _.shuffle($circles);
+  $circles = _.shuffle($circles);
   $circles = _.first($circles, count);
   _.each($circles, function(index, li){
     $(index).addClass('reqFinger');
@@ -106,7 +74,7 @@ function levelEnd(){
     })){
     newLevel();
   } else {
-    gameEnd("lose");
+    window.location = '/game-lose';
   }
 }
 
@@ -114,8 +82,7 @@ function gameEnd(endCondition){
 
   var $conditionCon = $('body');
   $conditionCon.append(endCondition);
-  
-  window.location = '/game-end';
+
 }
 
 

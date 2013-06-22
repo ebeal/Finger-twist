@@ -34,10 +34,10 @@ var buttonListener = function(x,y,z) {
   if(window.location.pathname === '/'){
     //declare go button position
     var buttonPos ={
-      xLeft : 700,
-      xRight : 900,
-      yBottom : 100,
-      yTop : 300,
+      xLeft : 580,
+      xRight : 750,
+      yBottom : 220,
+      yTop : 400,
       zero : 0
     };
 
