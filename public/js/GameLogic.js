@@ -1,16 +1,7 @@
-var levelCount = 0;
 
 //timer logic:
 var clock = document.querySelector(".clock"),
-    seconds = 0,
-    duration = seconds + "s";
-
-window.setTimeout(function(){
-  newLevel();
-},0);
-
-
-
+    seconds = 10;
 
 function createTimer(clock, inputSeconds) {
   timer = document.getElementById(clock);
@@ -24,7 +15,9 @@ function tick() {
   if (totalSeconds <= 0) {
     levelEnd();
   }
+  console.log("before decrement",totalSeconds);
   totalSeconds -= 1;
+  console.log("after decrement",totalSeconds);
   updateTimer();
   window.setTimeout("tick()", 1000);
 }
@@ -36,18 +29,17 @@ function updateTimer() {
 
 
 
+var levelCount = 0;
 //add to levelcount and check for levels (win at 11)
 function newLevel(){
   levelCount += 1;
-  seconds += 6;
+  //seconds += 5 ;
+
   if(levelCount > 5){
     window.location = '/game-win';
   } else {
-    //update printed level count
     updateLevel();
-    //select random rings based on level #
     randomRingSelection(levelCount);
-    //reset clock
     createTimer(clock, seconds);
   }
 }
@@ -85,9 +77,12 @@ function gameEnd(endCondition){
 
 }
 
-
-
 function updateLevel(){
   var $levelCon = $('.level-number');
   $levelCon.text(levelCount);
 }
+
+//Initialize the new game
+$(document).ready(function(){
+  newLevel();
+});

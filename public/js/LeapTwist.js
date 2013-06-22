@@ -1,3 +1,5 @@
+//Utility Functions
+
 var triggerElementOn = function(onElement, el){
   if(onElement){
     $(el).addClass("ring-hover");
@@ -30,14 +32,14 @@ var startButtonPressed = function(){
   window.location = '/game';
 };
 
-var buttonListener = function(x,y,z) {
-  if(window.location.pathname === '/'){
-    //declare go button position
+var goButtonListener = function(x,y,z) {
+  if(window.location.pathname === '/' || window.location.pathname === '/game-win' || window.location.pathname === '/game-lose'){
+    //Hard coded go button position
     var buttonPos ={
       xLeft : 580,
       xRight : 750,
-      yBottom : 220,
-      yTop : 400,
+      yBottom : 300,
+      yTop : 500,
       zero : 0
     };
 
@@ -55,6 +57,9 @@ var buttonListener = function(x,y,z) {
 
   }
 };
+
+
+//Leap integration object
 
 function LeapTwist() {
   this.scalingFactor = 3;
@@ -91,26 +96,6 @@ LeapTwist.prototype.highlightCircles = function() {
 
 };
 
-LeapTwist.prototype.matchReqCircles = function(){
-  var self = this;
-
-  // Loop through finger positions
-  self.reqCirclePositions.forEach(function(circle) {
-    var matched = self.pointerPositions.some(function(pointer) {
-      // Circle based
-      var inCircle = Math.pow(pointer.x - circle.x, 2) + Math.pow(pointer.y - circle.y, 2) < Math.pow(self.circleRadius, 2);
-
-      if (inCircle)
-        return true;
-    });
-
-    triggerReqElementOn(matched, circle.el);
-  });
-  // console.log(self.pointerPositions);
-
-};
-
-
 LeapTwist.prototype.handleMotion = function(obj) {
   var positions = this.pointerPositions = [];
 
@@ -138,11 +123,10 @@ LeapTwist.prototype.handleMotion = function(obj) {
       z: pos.z
     });
 
-    buttonListener(pos.x*3+this.center.x,this.canvas.height-(pos.y)*3,pos.z);
+    goButtonListener(pos.x*3+this.center.x,this.canvas.height-(pos.y)*3,pos.z);
   }
 
     this.highlightCircles();
-    this.matchReqCircles();
 };
 
 LeapTwist.prototype.positionCircles = function() {
@@ -191,21 +175,6 @@ LeapTwist.prototype.storeCirclePositions = function() {
 
 };
 
-LeapTwist.prototype.storeReqCirclePositions = function(){
-  var self = this;
-  var positions = this.reqCirclePositions = [];
-
-  // Store the position of each circle
-  $('.color-wheel a.reqFinger').each(function(index, el) {
-    var position = $(el).offset();
-
-    positions.push({
-      el: el,
-      x: position.left + self.circleRadius,
-      y: position.top + self.circleRadius
-    });
-  });
-};
 
 LeapTwist.prototype.setupCanvas = function() {
   // Store canvas and context
@@ -224,7 +193,6 @@ LeapTwist.prototype.setupCanvas = function() {
 
 LeapTwist.prototype.setup = function() {
   this.storeCirclePositions();
-  this.storeReqCirclePositions();
   this.setupCanvas();
   this.storeCenter();
 };
@@ -249,6 +217,7 @@ LeapTwist.prototype.init = function() {
 var leapTwist = new LeapTwist();
     leapTwist.init();
 
+//This does not work within the init function because of issues with multiple sockets
 Leap.loop({ enableGestures: true }, leapTwist.handleMotion.bind(leapTwist));
 
 
