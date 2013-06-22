@@ -79,6 +79,16 @@ server.get('/game', function(req,res){
   });
 });
 
+server.get('/game-end', function(req,res){
+  res.render('game-end.jade', {
+    locals :{
+             title : 'Twist Leap - Game Over',
+             description: 'game over',
+             author: 'Elle Beal'
+            }
+  });
+});
+
 
 //A Route for Creating a 500 Error (Useful to keep around)
 server.get('/500', function(req, res){

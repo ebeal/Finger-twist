@@ -29,14 +29,15 @@ var changeButtonElementClass = function(onElement,onElementPress) {
 var startButtonPressed = function(){
   window.location = '/game';
 };
+
 var buttonListener = function(x,y,z) {
   if(window.location.pathname === '/'){
     //declare go button position
     var buttonPos ={
-      xLeft : 780,
-      xRight : 870,
-      yBottom : 180,
-      yTop : 250,
+      xLeft : 700,
+      xRight : 900,
+      yBottom : 100,
+      yTop : 300,
       zero : 0
     };
 
