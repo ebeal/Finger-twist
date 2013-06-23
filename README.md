@@ -1,6 +1,6 @@
 # Leap-Twist
 
-* [Deployed Version](http://leap-twist.nodejitsu.com)
+[Deployed Version](http://leap-twist.nodejitsu.com)
 
 Twister for your fingers - WIP
 
