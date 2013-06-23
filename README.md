@@ -1,5 +1,7 @@
 # Leap-Twist
 
+[Deployed Version](leap-twist.nodejitsu.com)
+
 Twister for your fingers - WIP
 
 - To use the app plug the leap motion device in
