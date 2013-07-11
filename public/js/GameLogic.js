@@ -1,10 +1,9 @@
 
 //timer logic:
-var clock = document.querySelector(".clock"),
+var $clock = document.querySelector(".clock"),
     seconds = 0;
 
 function createTimer(clock, inputSeconds) {
-  timer = document.getElementById(clock);
   totalSeconds = inputSeconds;
 
   updateTimer();
@@ -24,12 +23,10 @@ function tick() {
 function updateTimer() {
   clock.innerHTML = totalSeconds;
 }
-
-
-
+//------------------------------------------------------------------------
 
 var levelCount = 0;
-//add to levelcount and check for levels (win at 11)
+//add to levelcount and check for levels (win at 6)
 function newLevel(){
   levelCount += 1;
   seconds += 5 ;
@@ -70,7 +67,6 @@ function levelEnd(){
 }
 
 function gameEnd(endCondition){
-
   var $conditionCon = $('body');
   $conditionCon.append(endCondition);
 
@@ -81,7 +77,7 @@ function updateLevel(){
   $levelCon.text(levelCount);
 }
 
-//Initialize the new game
+//Initialize the new game on doc ready to prevent timer starting too soon
 $(document).ready(function(){
   newLevel();
 });

@@ -1,6 +1,6 @@
 {
   "name": "leapjs",
-  "version": "0.1.2-5",
+  "version": "0.1.2-7",
   "description": "Leap Motion Client",
   "main": "lib",
   "scripts": {

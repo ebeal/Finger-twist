@@ -61,7 +61,7 @@ server.listen( port);
 server.get('/', function(req,res){
   res.render('index.jade', {
     locals : {
-              title : 'Twist Leap',
+              title : 'Finger Twist',
               description: 'twister for fingers',
               author: 'Elle Beal',
               analyticssiteid: 'XXXXXXX'
@@ -72,7 +72,7 @@ server.get('/', function(req,res){
 server.get('/game', function(req,res){
   res.render('game.jade', {
     locals :{
-             title : 'Twist Leap - New Game',
+             title : 'Finger Twist - New Game',
              description: 'new game',
              author: 'Elle Beal'
             }
@@ -82,7 +82,7 @@ server.get('/game', function(req,res){
 server.get('/game-win', function(req,res){
   res.render('game-win.jade', {
     locals :{
-             title : 'Twist Leap - Game Over',
+             title : 'Finger Twist - Game Over',
              description: 'game over',
              author: 'Elle Beal'
             }
@@ -92,7 +92,7 @@ server.get('/game-win', function(req,res){
 server.get('/game-lose', function(req,res){
   res.render('game-lose.jade', {
     locals :{
-             title : 'Twist Leap - Game Over',
+             title : 'Finger Twist - Game Over',
              description: 'game over',
              author: 'Elle Beal'
             }
