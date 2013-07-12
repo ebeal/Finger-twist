@@ -8,5 +8,5 @@ Twister for your fingers - WIP
 - Start the Leap application on your computer
 - Run node server.js in cloned directory and go to the generated localhost
 - Alteratively go to leap-twist.nodejitsu.com
-- If you don't have a Leap Motion view the demo here:
+- If you don't have a Leap Motion view the demo here: http://youtu.be/uwPCxfE_k8w
 - Have fun!
