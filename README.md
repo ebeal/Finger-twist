@@ -1,5 +1,7 @@
 # Finger-Twist
 
+Finger Twist is a Leap Motion web game that tracks your finger movements. To win each level you have to get you fingers in the highlighted cicles. Beat five levels and win the game!
+
 [Deployed Version](http://finger-twist.jit.su/)
 
 Twister for your fingers - WIP
